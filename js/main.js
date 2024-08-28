@@ -22,9 +22,22 @@ $(document).ready(function () {
     });
 
 
+    // Add event listener to close menu when clicking outside
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('#navigation, #slide_out_menu').length) {
+            $('#slide_out_menu').removeClass('open');
+            $('#navigation').removeClass('open');
+        }
+    });
+
+    $('#slide_out_menu').on('click', function (e) {
+        e.stopPropagation();
+    })
+
     // Navigation
     $('#navigation').on('click', function (e) {
         e.preventDefault();
+
         $(this).addClass('open');
         $('#slide_out_menu').toggleClass('open');
 
@@ -69,7 +82,8 @@ $(document).ready(function () {
             animateClass: 'animated', // default
             offset: 0,          // default
             mobile: true,       // default
-            live: true        // default
+            live: true,        // default
+            
         }
     );
     wow.init();

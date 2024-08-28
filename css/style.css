@@ -1030,6 +1030,9 @@ Responsive Styles
   #main-nav .col-md-4:last-child {
     display: none;
   }
+  #main-nav #navigation {
+    margin-top: -12px;
+  }
   #main-nav .logo {
     padding-top: 0px;
   }
